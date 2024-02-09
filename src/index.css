@@ -39,4 +39,8 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    .data-not-found {
+        @apply mt-4 py-20 text-[23px] text-Cgray text-center w-full bg-darker;
+    }
 }
