@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" class="box-border m-0 font-sans, font-serif">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>With Parcel</title>
+    <link rel="stylesheet" href="src/index.css">
+    <script defer type="module" src="src/controller.js"></script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-dark text-white max-sm:px-4">
+
+    <header class="div">
+        <h1 class="text-[2.5rem] h">Task List <span>2024</span></h1>
+        <form id="new-task-form" class="flex ">
+            <input
+                class="input-button bg-darker p-[1rem] rounded-[1rem] mr-[1rem] grow shrink basis-0 text-light text-[1.25rem] placeholder:text-Cgray"
+                type="text" id="new-tesk-input" placeholder="What do you have planned?">
+
+            <button class="primary-button text-[1.25rem] font-[700]" type="submit" id="new-task-submit">Add
+                task</button>
+        </form>
+    </header>
+
+    <main class="div p-[1rem]">
+
+        <section class="task-list">
+            <h2 class="text-[1.5rem] h">Tasks</h2>
+
+            <div id="tasks">
+
+                <!-- <div class="task card">
+                    <div class=" w-full mr-2">
+                        <input class="card-input" type="text" value="My shiny task">
+
+                    </div>
+                    <div class="actions flex my-0 mx-[-0.5rem]">
+                        <button class="primary-button" class="edit">Edit</button>
+                        <button class="button text-crimson" class="delet">Delete</button>
+                    </div>
+                </div> -->
+
+
+            </div>
+
+            <div class="pagenation my-4 w-full flex justify-between">
+                <!-- <button class="secondary-button">Pre</button>
+                <button class="secondary-button">Next</button> -->
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

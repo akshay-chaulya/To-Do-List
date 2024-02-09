@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .div {
+        @apply py-[2rem] px-[1rem] w-full max-w-[800px] my-0 mx-auto
+    }
+
+    .h {
+        @apply font-[300] text-Cgray mb-[1rem]
+    }
+
+    .card {
+        @apply flex justify-between bg-darkest p-[1rem] rounded-[1rem] mb-[1rem]
+    }
+
+    .card-input {
+        @apply input-button text-Cpink text-[1.125rem] w-full block transition duration-[400] read-only:text-light;
+    }
+
+    .primary-button {
+        @apply text-Cpink bg-gradient-to-r from-Cpink to-Cpurple webkit button;
+    }
+
+    .secondary-button {
+        @apply text-Cpink bg-gradient-to-r from-Cpink to-Cpurple text-light py-2 px-6 rounded-xl;
+    }
+
+    .input-button {
+        @apply appearance-none border-none outline-none bg-transparent;
+    }
+
+    .button {
+        @apply cursor-pointer my-0 mx-[0.5rem] font-[700] uppercase transition duration-[400] hover:opacity-[0.8] active:opacity-[0.6] input-button;
+    }
+
+    .webkit {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
