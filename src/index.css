@@ -12,11 +12,11 @@
     }
 
     .card {
-        @apply flex justify-between bg-darkest p-[1rem] rounded-[1rem] mb-[1rem]
+        @apply flex justify-between bg-darkest p-[1rem] rounded-[1rem] mb-[1rem] grid gap-1 grid-rows-1 grid-cols-4;
     }
 
     .card-input {
-        @apply input-button text-Cpink text-[1.125rem] w-full block transition duration-[400] read-only:text-light;
+        @apply w-full input-button text-Cpink text-[1.125rem] block transition duration-[400] read-only:text-light;
     }
 
     .primary-button {

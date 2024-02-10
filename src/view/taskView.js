@@ -3,6 +3,14 @@ import view from "./view";
 class TasksView extends view {
     _parentEl = document.getElementById("tasks");
 
+    constructor() {
+        super();
+        document.addEventListener("click", (e) => {
+            if (e.target.closest(".task")) return;
+            this._setAllEditBtnNormal();
+        })
+    }
+
     addHandlerRender(hanler) {
         window.addEventListener("load", hanler);
     };
@@ -16,17 +24,40 @@ class TasksView extends view {
         })
     }
 
-    addHandlerRenderEdit(handler) {
-        this._parentEl.addEventListener("click", function (e) {
-            const btn = e.target.closest(".edit");
+    addHandlerRenderEdit(handler1, handler2) {
+        this._parentEl.addEventListener("click", (e) => {
+            const btn = e.target.closest(".edit-save");
             if (!btn) return;
-            const input = btn.closest(".card").querySelector(".card-input");
-            input.removeAttribute("readonly");
-            const end = input.value.length;
-            input.setSelectionRange(end, end);
-            input.focus();
-            btn.innerHTML = 'save';
-            handler(input.value);
+
+            if (btn.textContent.toLowerCase("") === 'edit') {
+                this._setAllEditBtnNormal();
+
+                btn.textContent = "save";
+                const input = btn.closest(".task").querySelector("input");
+                const end = input.value.length;
+                input.removeAttribute("readonly")
+                input.setSelectionRange(end, end);
+                input.focus();
+                handler1(input.value);
+            } else if (btn.textContent.toLowerCase("") === 'save') {
+                this._setAllEditBtnNormal();
+
+                btn.textContent = "edit";
+                const input = btn.closest(".task").querySelector("input");
+                input.setAttribute("readonly", "readonly")
+                handler2(input.value);
+            };
+        })
+    }
+
+    _setAllEditBtnNormal() {
+        const allBtn = this._parentEl.querySelectorAll(".edit-save");
+        allBtn.forEach(btn => {
+            if (btn.textContent.toLocaleLowerCase() === "save") {
+                btn.textContent = "edit";
+                const input = btn.closest(".task").querySelector("input");
+                input.setAttribute("readonly", "readonly");
+            }
         })
     }
 
@@ -38,12 +69,12 @@ class TasksView extends view {
     _generateMarkupPrivew(task) {
         return `
         <div class="task card">
-            <div class=" w-full mr-2">
+            <div class="col-span-2">
                 <input class="card-input" type="text" value="${task.task}" readonly spellcheck="false">
-
             </div>
+            <div>${task.created}</div>
             <div class="actions flex my-0 mx-[-0.5rem]">
-                <button class="primary-button edit" class="edit">Edit</button>
+                <button class="primary-button edit-save edit">Edit</button>
                 <button class="button text-crimson delete" class="delet">Delete</button>
             </div>
         </div>`;

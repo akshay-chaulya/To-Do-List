@@ -4,6 +4,7 @@ export const state = {
     tasks: [],
     taskPerPage: TASK_PER_PAGE,
     curPage: 1,
+    editTaskIndex: 0,
 };
 
 export const addNewTask = function (newTask) {
@@ -21,6 +22,15 @@ export const addNewTask = function (newTask) {
 export const deleteTask = function (deleteTask) {
     const index = state.tasks.findIndex(task => task.task === deleteTask);
     state.tasks.splice(index, 1);
+    persistTask();
+}
+
+export const editTask = function (editTask) {
+    state.editTaskIndex = state.tasks.findIndex(task => task.task === editTask);
+}
+
+export const saveEditTask = function (saveEditTask) {
+    state.tasks[state.editTaskIndex].task = saveEditTask;
     persistTask();
 }
 

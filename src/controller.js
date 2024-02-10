@@ -28,7 +28,12 @@ const controlDeleteTask = function (task) {
 }
 
 const controlEditTask = function (task) {
-    console.log(task);
+    // console.log(task)
+    modal.editTask(task);
+}
+
+const controlSaveEditTask = function (task) {
+    modal.saveEditTask(task);
 }
 
 const init = function () {
@@ -36,6 +41,7 @@ const init = function () {
     tasksView.addHandlerRender(controlTasks)
     paginationView.addHandlerRender(controlPagination);
     tasksView.addHandlerRenderDelete(controlDeleteTask);
-    tasksView.addHandlerRenderEdit(controlEditTask);
+    tasksView.addHandlerRenderEdit(controlEditTask, controlSaveEditTask);
+    // tasksView.addHandlerRenderSaveEdit(controlSaveEditTask);
 };
 init();
