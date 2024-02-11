@@ -8,7 +8,7 @@ class TasksView extends view {
         document.addEventListener("click", (e) => {
             if (e.target.closest(".task")) return;
             this._setAllEditBtnNormal();
-        })
+        });
     }
 
     addHandlerRender(hanler) {

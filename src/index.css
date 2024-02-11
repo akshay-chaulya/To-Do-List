@@ -12,7 +12,11 @@
     }
 
     .card {
-        @apply flex justify-between bg-darkest p-[1rem] rounded-[1rem] mb-[1rem] grid gap-1 grid-rows-1 grid-cols-4;
+        @apply relative flex justify-between bg-darkest p-[1rem] rounded-[1rem] mb-[1rem] grid gap-1 grid-rows-1 grid-cols-4;
+    }
+
+    .task-hover {
+        @apply absolute bg-white text-black left-[50%] translate-x-[-50%] translate-y-[-100%] min-w-[50%] min-h-[100px] flex justify-center items-center rounded-3xl shadow-2xl shadow-black ring-1 ring-gray-300 text-[20px] transition duration-500 ease-in-out;
     }
 
     .card-input {
@@ -38,6 +42,10 @@
     .webkit {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+
+    .opacity {
+        @apply opacity-0;
     }
 
     .data-not-found {

@@ -42,6 +42,5 @@ const init = function () {
     paginationView.addHandlerRender(controlPagination);
     tasksView.addHandlerRenderDelete(controlDeleteTask);
     tasksView.addHandlerRenderEdit(controlEditTask, controlSaveEditTask);
-    // tasksView.addHandlerRenderSaveEdit(controlSaveEditTask);
 };
 init();
